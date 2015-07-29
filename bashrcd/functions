@@ -153,3 +153,7 @@ function ssh-ami(){
 function ssh-ami2(){
     ssh -i shanky.pem ubuntu@52.25.51.24
 }
+
+function ips(){
+    ifconfig | egrep -A2 "eth|wlan" | tr -d "\n"| sed 's/\-\-/\n/g'|awk '{print "mac: "$5 " " $7}' | sed 's/addr:/addr: /g'
+}
