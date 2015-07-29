@@ -5,18 +5,18 @@ export PS1="\[$(tput setaf 2)\]\[$(tput bold)\][\! \u@\h \w]\\$ \[$(tput sgr0)\]
 export PATH=~/Dropbox-Uploader:$PATH
 
 
-if [ -f ~/bashrc/bashrcd/.functions ]; then
-    source ~/bashrc/bashrcd/.functions
+if [ -f ~/bashrc/utils/functions ]; then
+    source ~/bashrc/bashrcd/functions
  fi
 
 
-if [ -f ~/bashrc/bashrcd/.aliases ]; then
-    source ~/bashrc/bashrcd/.aliases
+if [ -f ~/bashrc/utils/aliases ]; then
+    source ~/bashrc/bashrcd/aliases
 fi
 
 
-if [ -f ~/bashrc/bashrcd/.gitutils ]; then
-    source ~/bashrc/bashrcd/.gitutils
+if [ -f ~/bashrc/utils/gitutils ]; then
+    source ~/bashrc/bashrcd/gitutils
 fi
 
 #################################################################################################################################
