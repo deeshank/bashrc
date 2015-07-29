@@ -1,0 +1,8 @@
+
+function gvf() { ## show commited files in the specified commit
+    git show --pretty="format:" --name-only $1
+}
+
+function gbl() {
+    git log $1 master..
+}

@@ -1,0 +1,159 @@
+
+###############################################################################
+############### DROPBOX BACKUP UTILITY ########################################
+###############################################################################
+
+timestamp() {
+        date +"%Y-%m-%d_%H-%M-%S"
+}
+
+function process() {
+            
+ 	item=`basename $1`
+	
+	if [[ -f $1 ]]; then
+	        name=`echo "$item" | cut -d'.' -f1`;
+	        ext=`echo "$item" | cut -d'.' -f2`;
+                dst_file="${name}_$(timestamp).$ext"
+	elif [[ -d $1 ]]; then
+                dst_file="${item}_$(timestamp)"
+        fi  
+            
+        dropbox_uploader.sh upload $1 T420/$dst_file
+}    
+
+function bkup() {
+	for item in "$@"
+		do
+        		process $item
+		done
+}
+
+###############################################################################
+###################### DROPBOX CD UTILITY #####################################
+###############################################################################
+
+function cdb() {
+	if [ -z "$1" ]; then
+		cur_db=""
+	else 
+		cur_db="$cur_db/$1"
+	fi
+	dropbox_uploader.sh list $cur_db
+}
+
+###############################################################################
+
+function dn() {
+	if [ -z "$*" ]; then
+		echo "Filename required"
+	else
+		file="$cur_db/$*"
+		dropbox_uploader.sh download $file .
+	fi
+}
+
+
+function test() {
+
+	echo $*
+	echo $#
+	echo $@
+	echo $1	
+}
+
+
+function h() {
+        history | tail -n $1
+}
+
+function clean() {
+        echo "Cleaning Up" &&
+        sudo apt-get -f install &&
+        sudo apt-get autoremove &&
+        sudo apt-get -y autoclean &&
+        sudo apt-get -y clean
+}
+
+function search() {
+        sudo apt-cache search $1;
+}
+
+function install() {
+        sudo apt-get install $*;
+}
+
+# numberLines: echo the lines of a file preceded by line number
+function catln() { perl -pe 's/^/$. /' "$@" ; }
+
+#kill processes running on a port
+function killport() { kill -9 $(lsof -i:$1 -t) 2> /dev/null; }
+
+#extract cols
+function col {  awk -v col=$1 '{print $col}'; }
+
+function t2a { figlet $*; }
+
+function notify {
+        notify-send -t 5000 "$USER" "$*"
+}
+
+function os {
+        lsb_release -a
+}
+
+function sum() {
+        nawk '{s+=$1}END{print s}' $1
+}
+
+function colsfrm() {
+        cut -d " " -f $1- $2
+}
+
+function colstill() {
+        cut -d " " -f -$1 $2
+}
+
+function u {
+        echo "$*" | tr '[:lower:]' '[:upper:]'
+}
+
+function lo {
+        echo "$*" | tr '[:upper:]' '[:lower:]'
+}
+
+function dec {
+        hex=`u "$*"`
+        echo "ibase=16; $hex" | bc
+}
+
+function hex {
+        echo "obase=16; $@"|bc
+}
+
+function ports {
+        echo "Scanning TCP ports..."
+        for p in {1..1023}
+        do
+          (echo >/dev/tcp/localhost/$p) >/dev/null 2>&1 && echo "$p open"
+        done
+}
+
+function install-dropbox {
+        cd
+        git clone https://github.com/andreafabrizi/Dropbox-Uploader/
+        sudo chmod +x Dropbox-Uploader/dropbox_uploader.sh
+        echo "export PATH=~/Dropbox-Uploader:\$PATH" >> ~/.bashrc
+}
+
+function ssh-ami(){
+    ssh -i udanky.pem ubuntu@52.26.188.64
+}
+
+function ssh-ami2(){
+    ssh -i shanky.pem ubuntu@52.25.51.24
+}
+
+function ips(){
+    ifconfig | egrep -A2 "eth|wlan" | tr -d "\n"| sed 's/\-\-/\n/g'|awk '{print "mac: "$5 " " $7}' | sed 's/addr:/addr: /g'
+}
