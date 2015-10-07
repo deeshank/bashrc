@@ -2,21 +2,21 @@
 
 export PS1="\[$(tput setaf 2)\]\[$(tput bold)\][\! \u@\h \w]\\$ \[$(tput sgr0)\]"
 
-export PATH=~/Dropbox-Uploader:$PATH
+#export PATH=~/Dropbox-Uploader:$PATH
 
 
 if [ -f ~/bashrc/utils/functions ]; then
-    source ~/bashrc/bashrcd/functions
+    source ~/bashrc/utils/functions
  fi
 
 
 if [ -f ~/bashrc/utils/aliases ]; then
-    source ~/bashrc/bashrcd/aliases
+    source ~/bashrc/utils/aliases
 fi
 
 
 if [ -f ~/bashrc/utils/gitutils ]; then
-    source ~/bashrc/bashrcd/gitutils
+    source ~/bashrc/utils/gitutils
 fi
 
 #################################################################################################################################
@@ -27,7 +27,7 @@ fi
 ###################################################################################################################################
 
 
-#export JAVA_HOME=/usr/lib/jvm/java-7-oracle
+export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 #export VAGRANT_MEM=2048
 #export VAGRANT_TOMCAT=0
 #export MAVEN_OPTS="-Xms256m -Xmx512m"
@@ -35,9 +35,9 @@ fi
 #export JAVA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=5005,suspend=n,server=y"
 #export ANDROID_SDK_HOME=/home/deeshank/.android/.avd
 
-#export M2_HOME=/usr/local/apache-maven/apache-maven-3.3.1
-#export M2=$M2_HOME/bin
-#export PATH=$M2:$JAVA_HOME/bin:$PATH
+export M2_HOME=/usr/local/apache-maven/apache-maven-3.3.1
+export M2=$M2_HOME/bin
+export PATH=$M2:$JAVA_HOME/bin:$PATH
 
 #alias idea='cd /home/deeshank/Documents/ideaIDE/bin'
 #alias tomcat='cd /home/deeshank/sl/CMP/build/tomcat/api/bin'
