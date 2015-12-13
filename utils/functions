@@ -146,14 +146,18 @@ function install-dropbox {
         echo "export PATH=~/Dropbox-Uploader:\$PATH" >> ~/.bashrc
 }
 
-function ssh-ami(){
-    ssh -i udanky.pem ubuntu@52.26.188.64
-}
-
-function ssh-ami2(){
-    ssh -i shanky.pem ubuntu@52.25.51.24
-}
 
 function ips(){
     ifconfig | egrep -A2 "eth|wlan" | tr -d "\n"| sed 's/\-\-/\n/g'|awk '{print "mac: "$5 " " $7}' | sed 's/addr:/addr: /g'
+}
+
+function set-create-date() {
+	find -print | while read filename; do
+	    # do whatever you want with the file
+	    touch -t $1 "$filename"
+	done
+}
+
+function lights {
+	while true; do printf "\e[38;5;$(($(od -d -N 2 -A n /dev/urandom)%$(tput colors)))m.\e[0m"; done
 }

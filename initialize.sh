@@ -22,8 +22,16 @@ sudo apt-get install exuberant-ctags -y
 sudo apt-get install libcgi-simple-perl libcgi-ajax-perl libhtml-parser-perl libtemplate-perl -y
 sudo apt-get install libterm-progressbar-perl libdevel-size-perl -y
 sudo apt-get install libfile-mmagic-perl
-git clone git@github.com:dougblack/dotfiles.git
-cd dotfiles
-make install
+
+#For android studio install fix
+sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
+
+#git clone git@github.com:dougblack/dotfiles.git
+#cd dotfiles
+#make install
+
+
+#fun
+sudo apt-get install fortune toilet cowsay cmatrix funny-manpages
 
 sudo apt-get update

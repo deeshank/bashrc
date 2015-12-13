@@ -10,3 +10,10 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias bc='bc -l'
 
 alias db='dropbox_uploader.sh'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../..'
+alias .....='cd ../../..'
+alias ......='cd ../../..'
+alias bat_status='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep  -E "state|to\ full|percentage|time to empty"'
+

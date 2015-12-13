@@ -40,15 +40,24 @@ export M2=$M2_HOME/bin
 export PATH=$M2:$JAVA_HOME/bin:$PATH
 
 #alias idea='cd /home/deeshank/Documents/ideaIDE/bin'
-#alias tomcat='cd /home/deeshank/sl/CMP/build/tomcat/api/bin'
+alias tomcat='cd /home/deeshank13/sl/build/tomcat/api/bin'
 
 #export HADOOP_HOME=/home/deeshank/DB/hadoop_home
 #export HBASE_HOME=/home/deeshank/DB/hbase_home
 #export PATH=$PATH:$JAVA_HOME/bin:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:$HBASE_HOME/bin
 
-#export smartgit=/home/deeshank/Documents/smartgit
-#export PATH=$PATH:$smartgit/bin
+export smartgit=/home/deeshank13/Programs/smartgit
+export PATH=$PATH:$smartgit/bin
+
+export astudio=/home/deeshank13/Programs/android-studio
+export PATH=$PATH:$astudio/bin
 
 #export studio=/home/deeshank/Documents/android-studio
 #export PATH=$PATH:$studio/bin
+
+#######################################################################################################################################
+
+fortune | cowsay -f tux
+bat_status
+
 
