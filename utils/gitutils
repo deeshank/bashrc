@@ -7,10 +7,10 @@ function gbl() {
     git log $1 master..
 }
 
-function git-reset {
+function git-reset() {
 	echo "Making Local Repo in sync with Remote Repo"
 	git fetch origin
-	git reset --hard origin/master
+	git reset --hard origin/$1
 	git clean -f -d
 }
 

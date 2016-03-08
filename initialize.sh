@@ -30,8 +30,15 @@ sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0 lib32stdc++6
 #cd dotfiles
 #make install
 
-
 #fun
 sudo apt-get install fortune toilet cowsay cmatrix funny-manpages
+
+#configure git 
+git config --global alias.hist "log --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(red)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --graph --date=short"
+
+sudo apt-get install libssl-dev
+sudo apt-get install libpcap0.8-dev
+sudo make install
+sudo apt-get install john
 
 sudo apt-get update
