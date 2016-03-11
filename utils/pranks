@@ -1,0 +1,9 @@
+unmute() {
+	amixer -c 0 set Master playback 100% unmute
+}
+
+mute() {
+	amixer -c 0 set Master playback 0% mute
+}
+
+

@@ -18,6 +18,10 @@ if [ -f ~/bashrc/utils/gitutils ]; then
     source ~/bashrc/utils/gitutils
 fi
 
+if [ -f ~/bashrc/utils/pranks ]; then
+    source ~/bashrc/utils/pranks
+fi
+
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
