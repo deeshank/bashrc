@@ -7,3 +7,10 @@ mute() {
 }
 
 
+inclt() {
+	xbacklight -inc $1
+}
+
+declt() {
+	xbacklight -dec $1
+}
